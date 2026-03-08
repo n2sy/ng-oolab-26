@@ -1,0 +1,9 @@
+<p>Je m'appelle {{ prenom }} - Année : {{ year }}</p>
+
+<div [hidden]="hd" [style.backgroundColor]="bgColor">Exemple de Property Binding</div>
+
+<button (click)="traitement()" class="btn btn-primary">Click me</button>
+
+<input [(ngModel)]="prenom" type="text" class="form-control" />
+<hr />
+<input #inp [value]="prenom" (input)="updatePrenom(inp.value)" type="text" class="form-control" />
