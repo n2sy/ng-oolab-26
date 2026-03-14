@@ -7,3 +7,7 @@
 <input [(ngModel)]="prenom" type="text" class="form-control" />
 <hr />
 <input #inp [value]="prenom" (input)="updatePrenom(inp.value)" type="text" class="form-control" />
+
+<hr />
+
+<app-second (eventToParent)="RecupererMsg($event)" [txtColor]="bgColor"></app-second>
