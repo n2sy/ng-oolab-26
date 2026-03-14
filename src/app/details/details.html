@@ -5,16 +5,15 @@
         <img src="rotating_card_thumb2.png" />
       </div>
       <div class="user">
-        <img class="img-circle" src="bart.jpeg" />
+        <img class="img-circle" [src]="selCandidate.avatar" />
       </div>
       <div class="content">
         <div class="main">
-          <h3 class="name">Inna Corman</h3>
-          <p class="profession">Product Manager</p>
+          <h3 class="name">{{ selCandidate.prenom }} {{ selCandidate.nom }}</h3>
+          <p class="profession">{{ selCandidate.age }} ans</p>
 
           <p class="text-center">
-            "I'm the new Sinatra, and since I made it here I can make it anywhere, yeah, they love
-            me everywhere"
+            {{ selCandidate.profession }}
           </p>
         </div>
         <div class="footer">

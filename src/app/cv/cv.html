@@ -1,8 +1,12 @@
 <div class="row">
   <div class="col-5">
-    <app-liste> </app-liste>
+    <app-liste (eventToCv)="recupererCandidat($event)" [tabCandidates]="allCandidates"> </app-liste>
   </div>
   <div class="col-7">
-    <app-details> </app-details>
+    @if (selectedCandidate) {
+      <app-details [selCandidate]="selectedCandidate"> </app-details>
+    } @else {
+      <p style="margin-left: 10px">Veuillez sélectionner un candidat...</p>
+    }
   </div>
 </div>

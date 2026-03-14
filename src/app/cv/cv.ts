@@ -15,4 +15,9 @@ export class Cv {
     new Candidat(2, 'homer', 'simpson', 53, 'chef de projet', 'homer.png'),
     new Candidat(3, 'lisa', 'simpson', 21, 'designer', 'lisa.png'),
   ];
+  selectedCandidate: Candidat;
+
+  recupererCandidat(cand) {
+    this.selectedCandidate = cand;
+  }
 }
