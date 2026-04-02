@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Candidat } from '../models/candidat';
+import { NoAvatarPipe } from '../pipes/no-avatar-pipe';
 
 @Component({
   selector: 'app-details',
-  imports: [],
+  imports: [NoAvatarPipe],
   templateUrl: './details.html',
   styleUrl: './details.css',
 })

@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Candidat } from '../models/candidat';
 import { CustomDir } from '../custom-dir';
+import { NoAvatarPipe } from '../pipes/no-avatar-pipe';
 
 @Component({
   selector: 'app-item',
-  imports: [CustomDir],
+  imports: [CustomDir, NoAvatarPipe],
   templateUrl: './item.html',
   styleUrl: './item.css',
 })
