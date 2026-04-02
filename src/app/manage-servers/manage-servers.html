@@ -1,7 +1,9 @@
+<input [(ngModel)]="selectedStatus" type="text" class="form-control" />
+<br />
 <ol class="list-group">
-  @for (serv of tabServers; track $index) {
+  @for (serv of tabServers | filter: selectedStatus; track $index) {
     <li class="list-group-item" [ngClass]="affecterClass(serv.status)">
-      {{ serv.name | short: 15}} - {{ serv.type | titlecase }} -
+      {{ serv.name | short: 15 }} - {{ serv.type | titlecase }} -
       {{ serv.date_d | date: 'fullDate' | uppercase }}
 
       <span class="badge text-bg-secondary">{{ serv.status }}</span>

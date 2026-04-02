@@ -1,14 +1,26 @@
 import { CurrencyPipe, DatePipe, NgClass, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { ShortPipe } from '../pipes/short-pipe';
+import { FilterPipe } from '../pipes/filter-pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-manage-servers',
-  imports: [NgClass, UpperCasePipe, TitleCasePipe, DatePipe, CurrencyPipe, ShortPipe],
+  imports: [
+    NgClass,
+    UpperCasePipe,
+    TitleCasePipe,
+    DatePipe,
+    CurrencyPipe,
+    ShortPipe,
+    FilterPipe,
+    FormsModule,
+  ],
   templateUrl: './manage-servers.html',
   styleUrl: './manage-servers.css',
 })
 export class ManageServers {
+  selectedStatus = '';
   tabServers = [
     {
       name: 'Production Server',
