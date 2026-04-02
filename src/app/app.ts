@@ -3,10 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import { First } from './first/first';
 import { Second } from './second/second';
 import { Cv } from './cv/cv';
+import { HomeAccount } from './accounts/home-account/home-account';
 
 @Component({
   selector: 'app-root',
-  imports: [First, Second, Cv],
+  imports: [First, Second, Cv, HomeAccount],
   templateUrl: './app.html',
   styleUrl: './app.css',
   standalone: true,

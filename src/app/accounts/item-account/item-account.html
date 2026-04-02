@@ -1,0 +1,26 @@
+<div class="contour">
+  <h4>{{ oneAccount.name }}</h4>
+  <hr />
+  <p>This account is {{ oneAccount.status }}</p>
+  <button
+    [disabled]="oneAccount.status == 'active'"
+    class="btn btn-success"
+    (click)="updateStatus('active')"
+  >
+    Set to 'active'
+  </button>
+  <button
+    [disabled]="oneAccount.status == 'inactive'"
+    class="btn btn-danger"
+    (click)="updateStatus('inactive')"
+  >
+    Set to 'inactive'
+  </button>
+  <button
+    [disabled]="oneAccount.status == 'unknown'"
+    class="btn btn-info"
+    (click)="updateStatus('unknown')"
+  >
+    Set to 'unknown'
+  </button>
+</div>
