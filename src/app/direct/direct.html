@@ -1,0 +1,26 @@
+<div
+  [ngStyle]="{
+    backgroundColor: 'green',
+    color: 'yellow',
+  }"
+>
+  Exemple de ngStyle
+</div>
+
+<div [style.backgroundColor]="'green'" [style.color]="'yellow'">Exemple de ngStyle V2</div>
+
+<hr />
+
+<div
+  [ngClass]="{
+    c1: class1,
+    c2: class2,
+    c3: class3,
+  }"
+>
+  Exemple de ngClass
+</div>
+
+<div [class]="'c3 c2'">Exemple de ngClass</div>
+
+<button (click)="updateClasses()" class="btn btn-primary">Change Classes</button>

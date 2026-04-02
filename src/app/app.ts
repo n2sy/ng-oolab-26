@@ -4,10 +4,11 @@ import { First } from './first/first';
 import { Second } from './second/second';
 import { Cv } from './cv/cv';
 import { HomeAccount } from './accounts/home-account/home-account';
+import { Direct } from './direct/direct';
 
 @Component({
   selector: 'app-root',
-  imports: [First, Second, Cv, HomeAccount],
+  imports: [First, Second, Cv, HomeAccount, Direct],
   templateUrl: './app.html',
   styleUrl: './app.css',
   standalone: true,
