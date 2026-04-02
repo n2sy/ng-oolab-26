@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Candidat } from '../models/candidat';
+import { CustomDir } from '../custom-dir';
 
 @Component({
   selector: 'app-item',
-  imports: [],
+  imports: [CustomDir],
   templateUrl: './item.html',
   styleUrl: './item.css',
 })

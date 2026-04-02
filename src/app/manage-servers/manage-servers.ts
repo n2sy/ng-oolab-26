@@ -37,9 +37,9 @@ export class ManageServers {
 
   affecterClass(st) {
     return {
-      'list-group-item-success': st == 'stable',
-      'list-group-item-warning': st == 'offline',
-      'list-group-item-danger': st == 'critical',
+      'list-group-item-success': st === 'stable',
+      'list-group-item-warning': st === 'offline',
+      'list-group-item-danger': st === 'critical',
     };
   }
 }
