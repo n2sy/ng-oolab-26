@@ -1,9 +1,10 @@
-import { NgClass } from '@angular/common';
+import { CurrencyPipe, DatePipe, NgClass, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { ShortPipe } from '../pipes/short-pipe';
 
 @Component({
   selector: 'app-manage-servers',
-  imports: [NgClass],
+  imports: [NgClass, UpperCasePipe, TitleCasePipe, DatePipe, CurrencyPipe, ShortPipe],
   templateUrl: './manage-servers.html',
   styleUrl: './manage-servers.css',
 })
