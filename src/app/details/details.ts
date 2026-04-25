@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { Candidat } from '../models/candidat';
 import { NoAvatarPipe } from '../pipes/no-avatar-pipe';
+import { GestionRecrues } from '../services/gestion-recrues';
 
 @Component({
   selector: 'app-details',
@@ -10,4 +11,6 @@ import { NoAvatarPipe } from '../pipes/no-avatar-pipe';
 })
 export class Details {
   @Input() selCandidate: Candidat;
+
+  public recrueSer = inject(GestionRecrues);
 }
