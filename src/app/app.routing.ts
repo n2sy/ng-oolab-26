@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { Accueil } from './accueil/accueil';
-import { Cv } from './cv/cv';
 import { HomeAccount } from './accounts/home-account/home-account';
-import { ManageServers } from './manage-servers/manage-servers';
-import { Infos } from './infos/infos';
 import { Add } from './add/add';
+import { Cv } from './cv/cv';
 import { Edit } from './edit/edit';
+import { Infos } from './infos/infos';
+import { ManageServers } from './manage-servers/manage-servers';
 import { NotFound } from './not-found/not-found';
+import { HomeProducts } from './products/home-products/home-products';
 
 // export let myroutes: Routes = [
 //   { path: '', component: Accueil },
@@ -46,6 +46,7 @@ export let myroutes: Routes = [
     ],
   },
   { path: 'accounts', component: HomeAccount },
+  { path: 'products', component: HomeProducts },
   { path: 'servers', component: ManageServers },
   { path: '404', component: NotFound },
   { path: '**', redirectTo: '404' }, // Wild Route
