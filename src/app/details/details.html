@@ -12,9 +12,7 @@
           <h3 class="name">{{ selCandidate.prenom }} {{ selCandidate.nom }}</h3>
           <p class="profession">{{ selCandidate.age }} ans</p>
 
-          <p class="text-center">
-            {{ selCandidate.profession }}
-          </p>
+          <p class="text-center">{{ selCandidate.profession }}</p>
         </div>
         <div class="footer">
           <div class="rating"><i class="fa fa-mail-forward"></i> Auto Rotation</div>
@@ -54,6 +52,7 @@
           <button (click)="recrueSer.addRecrue(selCandidate)" class="btn btn-success">
             Recruter
           </button>
+          <a [routerLink]="[ selCandidate.id]" class="btn btn-info">Details</a>
         </div>
       </div>
     </div>

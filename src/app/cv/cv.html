@@ -1,16 +1,18 @@
+<router-outlet></router-outlet>
+
 <div class="row">
   <div class="col-5">
     <app-liste (eventToCv)="recupererCandidat($event)"> </app-liste>
   </div>
   <div class="col-7">
     @if (selectedCandidate) {
-      <app-details [selCandidate]="selectedCandidate"> </app-details>
+    <app-details [selCandidate]="selectedCandidate"> </app-details>
     } @else {
-      <p style="margin-left: 10px">Veuillez sélectionner un candidat...</p>
+    <p style="margin-left: 10px">Veuillez sélectionner un candidat...</p>
     }
   </div>
 </div>
 <app-recruter></app-recruter>
-<!-- 
+<!--
 <button (click)="addCand()" class="btn btn-primary">Add Candidate</button>
 <button (click)="showCandidates()" class="btn btn-primary">Show Candidates from CV</button> -->

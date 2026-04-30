@@ -8,10 +8,22 @@ import { Direct } from './direct/direct';
 import { ManageServers } from './manage-servers/manage-servers';
 import { Recruter } from './recruter/recruter';
 import { Navbar } from './navbar/navbar';
+import { ExpSignal } from './exp-signal/exp-signal';
 
 @Component({
   selector: 'app-root',
-  imports: [First, Second, Cv, HomeAccount, Direct, ManageServers, Recruter, RouterOutlet, Navbar],
+  imports: [
+    First,
+    Second,
+    Cv,
+    HomeAccount,
+    Direct,
+    ManageServers,
+    Recruter,
+    RouterOutlet,
+    Navbar,
+    ExpSignal,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

@@ -1,0 +1,12 @@
+<h4>Bienvenue chez OOlab (13ème mois)</h4>
+<br />
+
+<h6>Navigation côté Template</h6>
+<button routerLink="cv" class="btn btn-primary">Go To Cv</button>
+<button [routerLink]="['accounts']" class="btn btn-warning">Go To Accounts</button>
+
+<hr />
+
+<h6>Navigation côté TS</h6>
+<button (click)="goToCv()" class="btn btn-primary">Go To Cv</button>
+<button (click)="goToAccounts()" class="btn btn-warning">Go To Accounts</button>

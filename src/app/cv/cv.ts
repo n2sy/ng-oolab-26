@@ -5,10 +5,11 @@ import { Candidat } from '../models/candidat';
 import { First } from '../services/first';
 import { GestionCandidats } from '../services/gestion-candidats';
 import { Recruter } from '../recruter/recruter';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-cv',
-  imports: [Liste, Details, Recruter],
+  imports: [Liste, Details, Recruter, RouterOutlet],
   templateUrl: './cv.html',
   styleUrl: './cv.css',
   providers: [First],
