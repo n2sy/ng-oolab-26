@@ -1,0 +1,75 @@
+<form #f="ngForm" (ngSubmit)="submitHandler($event, f)">
+  <label>Adresse mail</label>
+  <input #log="ngModel" required email ngModel name="login" class="form-control" />
+
+  @if(log.dirty && log.invalid) {
+  <div class="alert alert-danger">Veuillez saisir une adresse mail valide</div>
+
+  }
+
+  <label>Mot de passe</label>
+  <input required minlength="3" ngModel name="password" class="form-control" />
+  <br />
+
+  <div ngModelGroup="infos">
+    <label>Langage préféré</label>
+    <select class="form-control" name="langage" [ngModel]="defaultLanguage">
+      <option></option>
+      <option value="js">Javascript</option>
+      <option value="php">Php</option>
+      <option value="java">Java</option>
+    </select>
+
+    <hr />
+    <p>Default Language : {{ defaultLanguage }}</p>
+    <hr />
+
+    <label>Commentaire</label>
+    <textarea
+      class="form-control"
+      cols="5"
+      rows="4"
+      name="comment"
+      [(ngModel)]="myComment"
+    ></textarea>
+    <hr />
+    <p>MyComment : {{ myComment }}</p>
+    <hr />
+  </div>
+
+  <label>Gestion des erreurs</label>
+  <input
+    #exp="ngModel"
+    name="erreurs"
+    ngModel
+    required
+    minlength="5"
+    pattern="nidhal"
+    type="text"
+    class="form-control"
+  />
+
+  @if(exp.invalid) { @if(exp.errors['required']) {
+  <div class="alert alert-danger">Ce champ est obligatoire</div>
+
+  } @if(exp.errors['minlength']) {
+  <div class="alert alert-danger">Le nombre minimum de caractères est 5</div>
+
+  } @if(exp.errors['pattern']) {
+  <div class="alert alert-danger">Le pattern est 'nidhal'</div>
+
+  } }
+
+  <button [disabled]="f.invalid" type="submit" class="btn btn-outline-primary">Se connecter</button>
+  <button (click)="generatePwd(f)" type="button" class="btn btn-outline-danger">
+    Generate Pwd
+  </button>
+  <button (click)="generatePwdII(f)" type="button" class="btn btn-outline-dark">
+    Generate Pwd II
+  </button>
+  <button (click)="resetForm(f)" type="button" class="btn btn-outline-dark">Reset</button>
+
+  <pre>
+    {{ f.value | json}}
+  </pre>
+</form>

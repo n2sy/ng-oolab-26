@@ -1,0 +1,29 @@
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td>
+        <input #pName class="form-control" placeholder="Product Name..." />
+      </td>
+      <td>
+        <input #pPrice class="form-control" type="number" placeholder="Product Price..." />
+      </td>
+      <td>
+        <input #pSelected type="checkbox" placeholder="Product Price..." />
+      </td>
+      <td>
+        <button
+          (click)="productSer.addProduct(
+          {
+            name : pName.value,
+            price : pPrice.value,
+            isSelected : pSelected.value
+          }
+          )"
+          class="btn btn-success"
+        >
+          Save
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
