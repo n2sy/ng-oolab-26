@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Output } from '@angular/core';
 import { Item } from '../item/item';
 import { Candidat } from '../models/candidat';
 import { GestionCandidats } from '../services/gestion-candidats';
@@ -8,7 +8,7 @@ import { GestionCandidats } from '../services/gestion-candidats';
   imports: [Item],
   templateUrl: './liste.html',
   styleUrl: './liste.css',
-  providers: [GestionCandidats],
+  // providers: [GestionCandidats],
 })
 export class Liste {
   tabCandidates: Candidat[] = [];

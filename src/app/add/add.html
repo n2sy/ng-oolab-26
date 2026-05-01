@@ -1,1 +1,23 @@
-<h3>Add Candidate</h3>
+<form #f="ngForm" (ngSubmit)="submitHandler(f.value)">
+  <label for="">Prénom</label>
+  <input ngModel name="prenom" type="text" class="form-control" />
+
+  <label for="">Nom</label>
+  <input ngModel name="nom" type="text" class="form-control" />
+
+  <label for="">Age</label>
+  <input ngModel name="age" type="number" class="form-control" />
+
+  <label for="">Profession</label>
+  <input ngModel name="profession" type="text" class="form-control" />
+
+  <label for="">Avatar</label>
+  <input ngModel name="avatar" type="text" class="form-control" />
+
+  <br />
+  <button type="submit" class="btn btn-primary">Ajouter Candidat</button>
+
+  <pre>
+    {{ f.value | json }}
+  </pre>
+</form>

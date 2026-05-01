@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
-import { inject } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router, RouterLink } from '@angular/router';
-import { GestionCandidats } from '../services/gestion-candidats';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Candidat } from '../models/candidat';
 import { NoAvatarPipe } from '../pipes/no-avatar-pipe';
+import { GestionCandidats } from '../services/gestion-candidats';
 
 @Component({
   selector: 'app-infos',
@@ -28,5 +27,12 @@ export class Infos {
     //     this.id = p.get('id');
     //   },
     // });
+  }
+
+  deleteHandler() {
+    if (confirm('Etes-vous sûr de vouloir supprimer ce candidat ?')) {
+      this.candSer.deleteCandidate(this.candidateToShow.id);
+      this.router.navigateByUrl('/cv');
+    }
   }
 }
