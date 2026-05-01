@@ -8,6 +8,7 @@ import { Login } from './login/login';
 import { ManageServers } from './manage-servers/manage-servers';
 import { NotFound } from './not-found/not-found';
 import { HomeProducts } from './products/home-products/home-products';
+import { ReactForm } from './react-form/react-form';
 
 // export let myroutes: Routes = [
 //   { path: '', component: Accueil },
@@ -49,6 +50,7 @@ export let myroutes: Routes = [
   { path: 'accounts', component: HomeAccount },
   { path: 'products', component: HomeProducts },
   { path: 'servers', component: ManageServers },
+  { path: 'react', component: ReactForm },
   { path: 'login', component: Login },
   { path: '404', component: NotFound },
   { path: '**', redirectTo: '404' }, // Wild Route
