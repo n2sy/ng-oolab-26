@@ -1,23 +1,23 @@
 <form #f="ngForm" (ngSubmit)="submitHandler(f.value)">
   <label for="">Prénom</label>
-  <input [ngModel]="candidateToUpdate.prenom" name="prenom" type="text" class="form-control" />
+  <input [ngModel]="candidateToUpdate().prenom" name="prenom" type="text" class="form-control" />
 
   <label for="">Nom</label>
-  <input [ngModel]="candidateToUpdate.nom" name="nom" type="text" class="form-control" />
+  <input [ngModel]="candidateToUpdate().nom" name="nom" type="text" class="form-control" />
 
   <label for="">Age</label>
-  <input [ngModel]="candidateToUpdate.age" name="age" type="number" class="form-control" />
+  <input [ngModel]="candidateToUpdate().age" name="age" type="number" class="form-control" />
 
   <label for="">Profession</label>
   <input
-    [ngModel]="candidateToUpdate.profession"
+    [ngModel]="candidateToUpdate().profession"
     name="profession"
     type="text"
     class="form-control"
   />
 
   <label for="">Avatar</label>
-  <input [ngModel]="candidateToUpdate.avatar" name="avatar" type="text" class="form-control" />
+  <input [ngModel]="candidateToUpdate().avatar" name="avatar" type="text" class="form-control" />
 
   <br />
   <button type="submit" class="btn btn-primary">Editer Candidat</button>

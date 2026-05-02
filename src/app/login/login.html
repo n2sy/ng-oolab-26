@@ -1,6 +1,11 @@
+@if(showError) {
+<div class="alert alert-danger">Login et/ou mot de passe invalides</div>
+
+}
+
 <form #f="ngForm" (ngSubmit)="submitHandler($event, f)">
   <label>Adresse mail</label>
-  <input #log="ngModel" required email ngModel name="login" class="form-control" />
+  <input #log="ngModel" required email ngModel name="email" class="form-control" />
 
   @if(log.dirty && log.invalid) {
   <div class="alert alert-danger">Veuillez saisir une adresse mail valide</div>
@@ -11,7 +16,7 @@
   <input required minlength="3" ngModel name="password" class="form-control" />
   <br />
 
-  <div ngModelGroup="infos">
+  <!--<div ngModelGroup="infos">
     <label>Langage préféré</label>
     <select class="form-control" name="langage" [ngModel]="defaultLanguage">
       <option></option>
@@ -58,16 +63,16 @@
   } @if(exp.errors['pattern']) {
   <div class="alert alert-danger">Le pattern est 'nidhal'</div>
 
-  } }
+  } }-->
 
   <button [disabled]="f.invalid" type="submit" class="btn btn-outline-primary">Se connecter</button>
-  <button (click)="generatePwd(f)" type="button" class="btn btn-outline-danger">
+  <!--<button (click)="generatePwd(f)" type="button" class="btn btn-outline-danger">
     Generate Pwd
   </button>
   <button (click)="generatePwdII(f)" type="button" class="btn btn-outline-dark">
     Generate Pwd II
   </button>
-  <button (click)="resetForm(f)" type="button" class="btn btn-outline-dark">Reset</button>
+  <button (click)="resetForm(f)" type="button" class="btn btn-outline-dark">Reset</button>-->
 
   <pre>
     {{ f.value | json}}

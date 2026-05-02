@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Candidat } from '../models/candidat';
 import { NoAvatarPipe } from '../pipes/no-avatar-pipe';
@@ -11,15 +11,23 @@ import { GestionCandidats } from '../services/gestion-candidats';
   styleUrl: './infos.css',
 })
 export class Infos {
-  candidateToShow: Candidat;
+  candidateToShow = signal<any>({});
   actRoute = inject(ActivatedRoute);
   router = inject(Router);
   candSer = inject(GestionCandidats);
 
   ngOnInit() {
     // V1
-    this.candidateToShow = this.candSer.getCandidateById(this.actRoute.snapshot.paramMap.get('id'));
-    if (!this.candidateToShow) this.router.navigateByUrl('/404');
+    this.candSer.getCandidateByIdAPI(this.actRoute.snapshot.paramMap.get('id')).subscribe({
+      next: (data: Candidat) => {
+        console.log(data);
+        this.candidateToShow.set(data);
+      },
+      error: (err) => {
+        console.log(err);
+        //this.router.navigateByUrl('/404');
+      },
+    });
 
     // V2
     // this.actRoute.paramMap.subscribe({
@@ -31,8 +39,15 @@ export class Infos {
 
   deleteHandler() {
     if (confirm('Etes-vous sûr de vouloir supprimer ce candidat ?')) {
-      this.candSer.deleteCandidate(this.candidateToShow.id);
-      this.router.navigateByUrl('/cv');
+      this.candSer.deleteCandidateAPI(this.candidateToShow()._id).subscribe({
+        next: (data: any) => {
+          alert(data.message);
+          this.router.navigateByUrl('/cv');
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
     }
   }
 }

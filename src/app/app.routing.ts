@@ -3,6 +3,9 @@ import { HomeAccount } from './accounts/home-account/home-account';
 import { Add } from './add/add';
 import { Cv } from './cv/cv';
 import { Edit } from './edit/edit';
+import { accessLoginGuard } from './guards/access-login-guard';
+import { allowModifGuard } from './guards/allow-modif-guard';
+import { quitterFormGuard } from './guards/quitter-form-guard';
 import { Infos } from './infos/infos';
 import { Login } from './login/login';
 import { ManageServers } from './manage-servers/manage-servers';
@@ -37,12 +40,17 @@ export let myroutes: Routes = [
     path: 'cv',
     children: [
       { path: '', component: Cv },
-      { path: 'add', component: Add },
+      {
+        path: 'add',
+        component: Add,
+        canActivate: [allowModifGuard],
+        canDeactivate: [quitterFormGuard],
+      },
       {
         path: ':id',
         children: [
           { path: '', component: Infos },
-          { path: 'edit', component: Edit },
+          { path: 'edit', component: Edit, canActivate: [allowModifGuard] },
         ],
       },
     ],
@@ -51,7 +59,7 @@ export let myroutes: Routes = [
   { path: 'products', component: HomeProducts },
   { path: 'servers', component: ManageServers },
   { path: 'react', component: ReactForm },
-  { path: 'login', component: Login },
+  { path: 'login', component: Login, canActivate: [accessLoginGuard] },
   { path: '404', component: NotFound },
   { path: '**', redirectTo: '404' }, // Wild Route
 ];

@@ -13,8 +13,28 @@ import { GestionCandidats } from '../services/gestion-candidats';
 export class Add {
   private candSer = inject(GestionCandidats);
   private router = inject(Router);
-  submitHandler(formValue) {
-    this.candSer.addNewCandidate(formValue);
-    this.router.navigateByUrl('/cv');
+  public isSubmitted = false;
+  submitHandler(e, formValue) {
+    // this.candSer.addNewCandidate(formValue);
+    // this.router.navigateByUrl('/cv');
+    let formData = new FormData();
+    formData.set('avatar', e.target[4].files[0]);
+    this.candSer.uploadAvatar(formData).subscribe({
+      next: (data: any) => {
+        formValue.avatar = data.url;
+        this.candSer.addNewCandidateAPI(formValue).subscribe({
+          next: (data: any) => {
+            this.isSubmitted = true;
+            alert(data.message);
+            this.router.navigateByUrl('/cv');
+          },
+        });
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
+
+  uploadFile(e) {}
 }

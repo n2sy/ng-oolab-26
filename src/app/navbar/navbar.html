@@ -17,6 +17,7 @@
       >Candidats</a
     >
   </li>
+  @if(authSer.isLogged()) {
   <li class="nav-item">
     <a
       class="nav-link"
@@ -26,6 +27,8 @@
       >Ajouter Candidat</a
     >
   </li>
+
+  }
   <!--<li class="nav-item">
     <a class="nav-link" routerLink="/cv/infos" routerLinkActive="active">Infos</a>
   </li>-->
@@ -38,7 +41,14 @@
   <li class="nav-item">
     <a class="nav-link" routerLink="/products" routerLinkActive="active">Products</a>
   </li>
+  @if(!authSer.isLogged()) {
   <li class="nav-item">
     <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
   </li>
+  } @else {
+  <li class="nav-item">
+    <a class="nav-link" (click)="authSer.seDeconnecter()">Logout</a>
+  </li>
+
+  }
 </ul>

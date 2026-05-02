@@ -1,6 +1,7 @@
 import { JsonPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { Auth } from '../services/auth';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +10,22 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrl: './login.css',
 })
 export class Login {
+  private authSer = inject(Auth);
+  showError = false;
   defaultLanguage = 'java';
   myComment = 'Rien à signaler...';
   submitHandler(e, f: NgForm) {
     e.preventDefault();
-    console.log(f.value);
+    this.authSer.seConnecter(f.value).subscribe({
+      next: (data: any) => {
+        alert(data.message);
+        localStorage.setItem('access_token', data.token);
+      },
+      error: (err) => {
+        this.showError = true;
+        f.reset();
+      },
+    });
   }
 
   generatePwd(f: NgForm) {

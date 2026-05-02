@@ -7,7 +7,7 @@
             width="150px"
             height="150px"
             class="rounded-circle align-content-center"
-            [src]="candidateToShow.avatar | noAvatar"
+            [src]="candidateToShow().avatar | noAvatar"
             alt=""
           />
         </div>
@@ -19,19 +19,19 @@
             <table class="table table-hover table-striped">
               <tbody>
                 <tr>
-                  <td><strong>Prénom</strong> {{ candidateToShow.prenom }}</td>
+                  <td><strong>Prénom</strong> {{candidateToShow().prenom }}</td>
                 </tr>
                 <tr>
-                  <td><strong>Nom</strong> {{ candidateToShow.nom }}</td>
+                  <td><strong>Nom</strong> {{candidateToShow().nom }}</td>
                 </tr>
                 <tr>
-                  <td><strong>Age</strong> {{ candidateToShow.age }}</td>
+                  <td><strong>Age</strong> {{candidateToShow().age }}</td>
                 </tr>
                 <tr>
-                  <td><strong>Profession</strong> {{ candidateToShow.profession }}</td>
+                  <td><strong>Profession</strong> {{candidateToShow().profession }}</td>
                 </tr>
                 <tr>
-                  <td><strong>Image</strong> {{ candidateToShow.avatar }}</td>
+                  <td><strong>Image</strong> {{candidateToShow().avatar }}</td>
                 </tr>
               </tbody>
             </table>
